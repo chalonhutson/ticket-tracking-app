@@ -27,19 +27,23 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div>
       <div>
         <h1>My Tickets</h1>
         <ul>
           {tickets.map(ticket => (
-            <li key={ticket.id}>
-              <h2>{ticket.title}</h2>
-              <p>{ticket.description}</p>
-            </li>
+            <div className="card">
+              <h5 className="card-header">{ticket.title}</h5>
+              <div className="card-body">
+                <h5 className="card-title">{ticket.title}</h5>
+                <p className="card-text">{ticket.description}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   )
 }
 
