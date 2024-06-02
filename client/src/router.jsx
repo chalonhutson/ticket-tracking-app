@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate, useRouteError } from "react-router-dom"
 import { RootLayout } from "./layouts/RootLayout"
-import { ticketRoute } from "./pages/Ticket"
-import { ticketListRoute } from "./pages/TicketList"
+import { ticketRoute } from "./pages/tickets/Ticket"
+import { ticketListRoute } from "./pages/tickets/TicketList"
 
 export const router = createBrowserRouter([
     {

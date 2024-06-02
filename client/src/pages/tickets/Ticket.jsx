@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom"
-import { getTicket } from "../api/tickets"
+import { getTicket } from "../../api/tickets"
 
 function Ticket() {
     const { ticket } = useLoaderData()
