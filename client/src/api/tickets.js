@@ -13,5 +13,5 @@ export function createTicket(ticket, options) {
 }
 
 export function updateTicketStatus(ticketId, newStatus) {
-  return baseApi.put(`tickets/${ticketId}/`, {"status": newStatus}).then(res => res.data)
+  return baseApi.patch(`tickets/${ticketId}/`, {"status": newStatus}).then(res => res.data)
 }

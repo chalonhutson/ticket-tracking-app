@@ -6,7 +6,10 @@ export default function TicketListItem({ ticket }) {
 
     const navigate = useNavigate()
 
-    function attemptMoveTicket(direction) {
+    function attemptMoveTicket(e, direction) {
+        e.stopPropagation()
+        navigate(window.location.pathname)
+
         if (direction === "forward") {
             if (ticket.status === "to-do") {
                 updateTicketStatus(ticket.id, "in-progress")
@@ -28,8 +31,15 @@ export default function TicketListItem({ ticket }) {
             <div className="card-body">
                 <h5 className="card-title">{ticket.title}</h5>
                 <p className="card-text">{ticket.description}</p>
-                <Link onClick={() => attemptMoveTicket("backward")} className="card-link">Move Back</Link>
-                <Link onClick={() => attemptMoveTicket("forward")} className="card-link">Move Forward</Link>
+                {ticket.status === "in-progress" || ticket.status === "completed" ?
+                    <Link onClick={(e) => attemptMoveTicket(e, "backward")} className="card-link">Move Back</Link>
+                    : null
+                }
+                {
+                    ticket.status === "to-do" || ticket.status === "in-progress" ?
+                        <Link onClick={(e) => attemptMoveTicket(e, "forward")} className="card-link">Move Forward</Link>
+                        : null
+                }
             </div>
         </div>
     )

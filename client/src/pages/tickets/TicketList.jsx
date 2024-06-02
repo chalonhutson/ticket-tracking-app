@@ -1,10 +1,27 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate, useLocation } from "react-router-dom"
 import { getTickets } from "../../api/tickets"
+import { useEffect, useState } from "react"
 
 import TicketListItem from "./TicketListItem"
 
 function TicketList() {
-    const tickets = useLoaderData()
+    const initialTickets = useLoaderData()
+    const [tickets, setTickets] = useState(initialTickets)
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    useEffect(() => {
+        const fetchTickets = async () => {
+            try {
+                const data = await getTickets()
+                setTickets(data)
+            } catch (error) {
+                console.error("Error fetching tickets:", error)
+            }
+        }
+
+        fetchTickets()
+    }, [location])
 
     document.title = "All of your tickets"
 
