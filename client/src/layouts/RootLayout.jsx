@@ -16,6 +16,7 @@ export function RootLayout() {
                 <ul className="nav-list">
                     <li>
                         <Link to="/tickets">Tickets</Link>
+                        <Link to="/add-ticket">Add Ticket</Link>
                     </li>
                 </ul>
             </nav>
