@@ -15,3 +15,7 @@ export function createTicket(ticket, options) {
 export function updateTicketStatus(ticketId, newStatus) {
   return baseApi.patch(`tickets/${ticketId}/`, {"status": newStatus}).then(res => res.data)
 }
+
+export function deleteTicket(ticketId) {
+  return baseApi.delete(`tickets/${ticketId}`).then(res => res.data)
+}
