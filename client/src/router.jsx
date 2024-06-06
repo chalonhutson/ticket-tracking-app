@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, useRouteError } from "react-router-dom"
 import { RootLayout } from "./layouts/RootLayout"
 import { ticketRoute } from "./pages/tickets/Ticket"
 import { ticketListRoute } from "./pages/tickets/TicketList"
+import AddTicket from "./pages/tickets/AddTicket"
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
                                 index: true,
                                 ...ticketListRoute,
                             },
+                            { path: "add", element: <AddTicket /> },
                             { path: ":ticketId", ...ticketRoute },
                         ],
                     },

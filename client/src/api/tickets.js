@@ -9,7 +9,7 @@ export function getTicket(ticketId, options) {
 }
 
 export function createTicket(ticket, options) {
-  return baseApi.post("tickets", ticket, options).then(res => res.data)
+  return baseApi.post("tickets/", ticket, options).then(res => res.data)
 }
 
 export function updateTicketStatus(ticketId, newStatus) {
