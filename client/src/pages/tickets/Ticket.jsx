@@ -26,6 +26,9 @@ function Ticket() {
         })
     }
 
+
+    console.log(ticket.comments)
+
     return (
         <>
             {editTicket ?
@@ -63,6 +66,7 @@ function Ticket() {
                 </>
 
             }
+            {ticket.comments.map(comment => <p key={comment.id}>{comment.comment}</p>)}
             <Link to="/tickets">Back</Link>
         </>
     )

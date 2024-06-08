@@ -10,3 +10,13 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.title
+    
+# Comments for ticket items
+class TicketComment(models.Model):
+    ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, related_name='comments')
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.comment
