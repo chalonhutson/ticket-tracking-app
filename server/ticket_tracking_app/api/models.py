@@ -7,6 +7,7 @@ class Ticket(models.Model):
     status = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    due_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -20,3 +21,16 @@ class TicketComment(models.Model):
 
     def __str__(self):
         return self.comment
+    
+# Ticket Task
+class TicketTask(models.Model):
+    ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, related_name='tasks')
+    task = models.TextField()
+    status = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    due_date = models.DateTimeField(null=True, blank=True)
+
+
+    def __str__(self):
+        return self.task
