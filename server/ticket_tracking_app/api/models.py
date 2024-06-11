@@ -31,6 +31,5 @@ class TicketTask(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     due_date = models.DateTimeField(null=True, blank=True)
 
-
     def __str__(self):
         return self.task
