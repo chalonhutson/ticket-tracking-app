@@ -68,7 +68,7 @@ function Ticket() {
             }
             <div>
                 <h2>Comments</h2>
-                <button className="btn btn-primary" onClick={() => navigate(`/tickets/${ticket.id}/comments/new`)}>Add Comment</button>
+                <button className="btn btn-primary">Add Comment</button>
                 {ticket.comments.map(comment => <p key={comment.id}>{comment.comment}</p>)}
             </div>
             <Link to="/tickets">Back</Link>
